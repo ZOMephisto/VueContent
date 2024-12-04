@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Object Navigator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="content">
+        <img :src="currentObject.img" alt="Image" class="content-img">
+        <div class="text">
+            <h2 v-if="showTitle">{{ currentObject.title }}</h2>
+            <p v-else>{{ currentObject.desc }}</p>
+        </div>
+        <button @click="toggleContent">{{ showTitle ? 'Show Description' : 'Show Title' }}</button>
+    </div>
+    <div class="navigation">
+        <button @click="prevItem">Previous</button>
+        <button @click="nextItem">Next</button>
+    </div>
+</div>
+
+<script src="data/data.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            index: 0,
+            showTitle: true,
+            objects: dataObjects // Data imported from data.js
+        },
+        computed: {
+            currentObject() {
+                return this.objects[this.index];
+            }
+        },
+        methods: {
+            toggleContent() {
+                this.showTitle = !this.showTitle;
+            },
+            nextItem() {
+                if (this.index < this.objects.length - 1) {
+                    this.index++;
+                } else {
+                    this.index = 0;
+                }
+            },
+            prevItem() {
+                if (this.index > 0) {
+                    this.index--;
+                } else {
+                    this.index = this.objects.length - 1;
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
