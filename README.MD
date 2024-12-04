@@ -22,7 +22,7 @@ This project is a simple Vue.js application that displays a list of objects with
 
 ## Live Demo
 
-You can view a live demo of the application [here](<live-demo-url>).
+You can view a live demo of the application [here](https://zomephisto.github.io/VueContent/).
 
 ## Group Members
 
