@@ -29,7 +29,3 @@ You can view a live demo of the application [here](https://zomephisto.github.io/
 - Louison SILLON
 - Alex HAING
 - Gabriel TANNOUS
-
-## License
-
-This project is licensed under the MIT License.
